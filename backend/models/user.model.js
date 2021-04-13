@@ -1,7 +1,9 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
+// Define user schema
 const userSchema = new Schema({
+    // Attributes and data types
     username: {
         type: String,
         required: true,
@@ -10,6 +12,7 @@ const userSchema = new Schema({
         minlength: 3
     },
 }, {
+    // Create timestamp for each entry
     timestamps: true,
 });
 
