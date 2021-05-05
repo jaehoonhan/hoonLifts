@@ -5,13 +5,14 @@ import "react-datepicker/dist/react-datepicker.css"
 export default class CreateExercises extends Component {
     constructor(props) {
         super(props);
-
+        // behind 'this' to each change state function
         this.onChangeUsername = this.onChangeUsername.bind(this);
         this.onChangeDescription = this.onChangeDescription.bind(this);
         this.onChangeDuration = this.onChangeDuration.bind(this);
         this.onChangeDate = this.onChangeDate.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
-
+        
+        // set initial state and properties
         this.state = {
             username: '',
             description: '',
@@ -20,7 +21,7 @@ export default class CreateExercises extends Component {
             users: []
         }
     }
-
+    // temporarily hard code single user for testing
     componentDidMount() {
         this.setState({
             users: ['test user'],
@@ -53,6 +54,7 @@ export default class CreateExercises extends Component {
     }
 
     onSubmit(e) {
+        // prevent default HTML submit behaviour
         e.preventDefault();
 
         const exercise = {
@@ -80,7 +82,7 @@ export default class CreateExercises extends Component {
                       className="form-control"
                       value={this.state.username}
                       onChange={this.onChangeUsername}>
-                      {
+                      { // map array of users
                         this.state.users.map(function(user) {
                           return <option 
                             key={user}
@@ -111,6 +113,7 @@ export default class CreateExercises extends Component {
                 <div className="form-group">
                   <label>Date: </label>
                   <div>
+                    {/* calender component */}
                     <DatePicker
                       selected={this.state.date}
                       onChange={this.onChangeDate}
