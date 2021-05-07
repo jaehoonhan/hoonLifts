@@ -65,7 +65,7 @@ export default class CreateExercises extends Component {
         }
 
         console.log(exercise)
-
+        // change the location back to the home page after submit
         window.location = '/';
     }
 
