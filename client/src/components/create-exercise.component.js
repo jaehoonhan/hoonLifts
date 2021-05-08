@@ -71,6 +71,7 @@ export default class CreateExercises extends Component {
 
      
     render() {
+        // Submit form
         return (
             <div>
               <h3>Create New Exercise Log</h3>

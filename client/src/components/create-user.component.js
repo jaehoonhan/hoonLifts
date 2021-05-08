@@ -4,11 +4,11 @@ import axios from 'axios';
 export default class CreateUsers extends Component {
     constructor(props) {
         super(props);
-        // behind 'this' to each change state function
+        // Bind 'this' to each change state function
         this.onChangeUsername = this.onChangeUsername.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
         
-        // set initial state and properties
+        // Set initial state and properties
         this.state = {
             //for testing
             username: '',
@@ -22,7 +22,7 @@ export default class CreateUsers extends Component {
     }
     
     onSubmit(e) {
-        // prevent default HTML submit behaviour
+        // Prevent default HTML submit behaviour
         e.preventDefault();
 
         const user = {
@@ -30,7 +30,7 @@ export default class CreateUsers extends Component {
         };
         // for testing
         console.log(user);
-
+        // Make a post request to the server with the new user
         axios.post('http://localhost:5000/users/add', user)
             .then(res => console.log(res.data));
              
@@ -43,6 +43,7 @@ export default class CreateUsers extends Component {
 
     render() {
         return (
+        // submit form
         <div>
             <h3>Create New User</h3>
             <form onSubmit={this.onSubmit}>
