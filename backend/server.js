@@ -23,7 +23,7 @@ connection.once('open', () => {
 // Require models
 const exercsisesRouter = require('./routes/exercises');
 const usersRouter = require('./routes/users');
-// Use
+// Use routes
 app.use('/exercises', exercsisesRouter);
 app.use('/users', usersRouter);
 
