@@ -6,6 +6,7 @@ const mongoose = require('mongoose');
 require('dotenv').config();
 // Express server
 const app = express();
+// Host server on localhost 5000
 const port = process.env.PORT || 5000;
 // Middleware
 app.use(cors());
