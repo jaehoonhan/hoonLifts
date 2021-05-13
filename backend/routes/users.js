@@ -19,13 +19,14 @@ router.route('/add').post((req, res) => {
     // Set new user attributes in variables
     const username = req.body.username;
     const email = req.body.email;
-    const password = req.body.password
+    const password = req.body.password;
+    const date = Date.now;
     // Create new user and set attributes
     const newUser = new User({
         username,
         email,
         password,
-
+        date,
     });
     // Save user to database
     newUser.save()

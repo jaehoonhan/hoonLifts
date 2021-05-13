@@ -6,7 +6,7 @@ import "react-datepicker/dist/react-datepicker.css"
 export default class CreateExercises extends Component {
     constructor(props) {
         super(props);
-        // behind 'this' to each change state function
+        // bind 'this' to each change state function
         this.onChangeUsername = this.onChangeUsername.bind(this);
         this.onChangeDescription = this.onChangeDescription.bind(this);
         this.onChangeDuration = this.onChangeDuration.bind(this);
