@@ -8,22 +8,23 @@ require('dotenv').config();
 const app = express();
 // Host server on localhost 5000
 const port = process.env.PORT || 5000;
-// Middleware
+// Middleware: cors, bodyparser
 app.use(cors());
 app.use(express.json());
 
-// MongoDB URI
+// Get MongoDB URI string from .env file
 const uri = process.env.ATLAS_URI;
 mongoose.connect(uri, { useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true});
 const connection = mongoose.connection;
+// Connect to MongoDB and console log if success
 connection.once('open', () => {
     console.log("MongoDB database connection established successfully");
 })
 
-// Require models
+// Import models
 const exercsisesRouter = require('./routes/exercises');
 const usersRouter = require('./routes/users');
-// Use routes
+// Append routes
 app.use('/exercises', exercsisesRouter);
 app.use('/users', usersRouter);
 

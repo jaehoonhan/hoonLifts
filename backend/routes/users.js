@@ -16,13 +16,22 @@ router.route('/').get((req, res) => {
 // POST Request
 // rooturl/users/add
 router.route('/add').post((req, res) => {
-    // Create new user
+    // Set new user attributes in variables
     const username = req.body.username;
- 
-    const newUser = new User({username});
+    const email = req.body.email;
+    const password = req.body.password
+    // Create new user and set attributes
+    const newUser = new User({
+        username,
+        email,
+        password,
+
+    });
     // Save user to database
     newUser.save()
+        // If success
         .then(() => res.json('User added.'))
+        // If error, catch and send as json
         .catch(err => res.status(400).json('Error: ' + err));
 
 });

@@ -22,7 +22,7 @@ router.route('/add').post((req, res) => {
     const description = req.body.description;
     const duration = Number(req.body.duration);
     const date = Date.parse(req.body.date);
-    // Create new Exercise
+    // Create new Exercise and set attributes
     const newExercise = new Exercise({
         username,
         description,
